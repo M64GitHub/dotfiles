@@ -1,6 +1,8 @@
-Made for gnu [stow](https://www.gnu.org/software/stow/):
+My dotfiles
 
-To install, clone into `~`. 
+Made for gnu [stow](https://www.gnu.org/software/stow/)
+
+To install, clone into `~`, then
 
 ```zsh
 # cd ~/dotfiles
