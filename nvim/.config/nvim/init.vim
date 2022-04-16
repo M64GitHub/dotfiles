@@ -6,7 +6,7 @@ set rnu
 set nohlsearch
 set hidden
 set noerrorbells
-" set nocompatible
+set nocompatible
 
 set updatetime=100
 syntax on
@@ -35,9 +35,7 @@ set undofile
 set incsearch
 
 set scrolloff=8
-
 set termguicolors
-
 set noshowmode
 
 set splitright
@@ -45,7 +43,6 @@ set splitright
 call plug#begin('~/.vim/plugged')
 
 " basic
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -60,41 +57,36 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-telescope/telescope-symbols.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'make' }
-
 Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'LinArcX/telescope-env.nvim'
 Plug 'TC72/telescope-tele-tabby.nvim'
-" Plug 'fannheyward/telescope-coc.nvim'
 
-Plug 'folke/trouble.nvim'
 
 " treesitter
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+
+" Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 " Plug 'ray-x/navigator.lua'
 " Plug 'ray-x/lsp_signature.nvim'
 
-"" Plug 'hrsh7th/nvim-compe' and other plugins you commenly use...
 
-" optional, if you need treesitter symbol support
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
+" trouble
+Plug 'folke/trouble.nvim'
 
 " firenvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " themes
-Plug 'tomasiser/vim-code-dark'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'flazz/vim-colorschemes'
-Plug 'projekt0n/github-nvim-theme'
 Plug 'shaunsingh/nord.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
 Plug 'olimorris/onedarkpro.nvim'
 Plug 'fatih/molokai'
 Plug 'bluz71/vim-moonfly-colors'
-" Plug 'kien/rainbow_parentheses.vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Emojis
@@ -114,19 +106,12 @@ Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
 " Tab.....rename
 Plug 'webdevel/tabulous' " -- provides: Tabrename, and 1/2/3..gt
-" tab tree ,mt
+" Tab tree ,mt
 Plug 'kien/tabman.vim' " -- provides: mt tab tree
-
-" autosession
-" Plug 'rmagatti/auto-session'
-" Plug 'rmagatti/session-lens'
 
 " markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mzlogin/vim-markdown-toc'
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 Plug 'simrat39/symbols-outline.nvim'
 
@@ -162,7 +147,7 @@ inoremap <leader><leader>O Ö
 inoremap <leader><leader>U Ü
 inoremap <leader><leader>s ß
 
-" -- mario stuff
+" m64
 
 " session bam
 let g:sesssionsdir = '~/nvim-sessions'
@@ -185,17 +170,11 @@ map <Up>   gk
 noremap j gj
 nnoremap k gk
 
-" TAB  between buffers
+" TAB between buffers
 nnoremap <Tab> <c-w><c-w>
 
 " C-W
 nnoremap <leader>w <C-w>
-" resize window
-" nnoremap <C-h> <C-w><
-" nnoremap <C-j> <C-w>+
-" nnoremap <C-k> <C-w>-
-" nnoremap <C-l> <C-w>>
-
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
@@ -204,7 +183,6 @@ nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
 
 
-" telescope and beyound ...
 nnoremap <leader><leader> <cmd>Telescope find_files<cr>
 nnoremap <leader>h <cmd>Telescope command_history<cr>
 
@@ -249,7 +227,6 @@ endfunction
 
 " allow Q to q uit
 call SetupCommandAbbrs('Q', 'q')
-
 
 " -- nerdtree stuff
 nnoremap <C-g> :NERDTreeToggle<cr>
@@ -312,9 +289,6 @@ require'nvim-treesitter.configs'.setup {
 --      disable = { "" },
   }
 }
-EOF
-
-lua <<EOF
 require('telescope').load_extension('env')
 require('telescope').load_extension('gh')
 require("telescope").load_extension('media_files')
