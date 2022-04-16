@@ -10,4 +10,3 @@ for i in [a-z]*; do
 done
 ```
 
-
