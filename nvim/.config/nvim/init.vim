@@ -1,48 +1,38 @@
-set exrc                        " load external .vimrcs
-set guicursor=                  " keep block cursor always
-
+set exrc                        
+set guicursor=                  
 set number
 set rnu
 set nohlsearch
 set hidden
 set noerrorbells
 set nocompatible
-
 set updatetime=100
 syntax on
 set mouse=a
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-
 set noswapfile
 set nobackup
 set backspace=indent,eol,start
 set signcolumn=yes " number
 set nowrap
 set encoding=utf-8
-
 set cmdheight=1
 set previewheight=10
 set completeopt-=preview 
 set shortmess+=c
-
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-
 set scrolloff=8
 set termguicolors
 set noshowmode
-
 set splitright
 
 call plug#begin('~/.vim/plugged')
-
-" basic
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -61,7 +51,6 @@ Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'LinArcX/telescope-env.nvim'
 Plug 'TC72/telescope-tele-tabby.nvim'
 
-
 " treesitter
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -71,12 +60,42 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 " Plug 'ray-x/navigator.lua'
 " Plug 'ray-x/lsp_signature.nvim'
 
+" dap
+Plug 'mfussenegger/nvim-dap'
+Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'rcarriga/nvim-dap-ui'
+" Plug 'leoluz/nvim-dap-go'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'simrat39/symbols-outline.nvim'
 
 " trouble
 Plug 'folke/trouble.nvim'
 
+" comments
+Plug 'numToStr/Comment.nvim'
+
 " firenvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+" nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+
+" tab related
+Plug 'webdevel/tabulous' " -- provides: Tabrename, and 1/2/3..gt
+Plug 'kien/tabman.vim' "   -- provides: mt tab tree  ,mt
+
+" markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'mzlogin/vim-markdown-toc'
+
+" scrollbar
+Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
 " themes
 Plug 'gruvbox-community/gruvbox'
@@ -89,41 +108,10 @@ Plug 'fatih/molokai'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-" Emojis
+" emojis
 Plug 'kyuhi/vim-emoji-complete'
 Plug 'xiyaowong/telescope-emoji.nvim'
 
-"  nerdtree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-"
-Plug 'airblade/vim-gitgutter'
-"
-Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
-
-" Tab.....rename
-Plug 'webdevel/tabulous' " -- provides: Tabrename, and 1/2/3..gt
-" Tab tree ,mt
-Plug 'kien/tabman.vim' " -- provides: mt tab tree
-
-" markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'mzlogin/vim-markdown-toc'
-
-Plug 'simrat39/symbols-outline.nvim'
-
-" comments
-Plug 'numToStr/Comment.nvim'
-
-" dap
-Plug 'mfussenegger/nvim-dap'
-Plug 'nvim-telescope/telescope-dap.nvim'
-Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'rcarriga/nvim-dap-ui'
-" Plug 'leoluz/nvim-dap-go'
 
 call plug#end()
 "
@@ -181,7 +169,6 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
-
 
 nnoremap <leader><leader> <cmd>Telescope find_files<cr>
 nnoremap <leader>h <cmd>Telescope command_history<cr>
@@ -307,7 +294,7 @@ EOF
 lua << EOF
 require('telescope').setup({
   defaults = {
-      cache_picker = false,
+    cache_picker = false,
     layout_config = {
       vertical = { width = 0.5 },
       -- other layout configuration here
@@ -371,11 +358,7 @@ augroup END
 " scrollbar highlight clear SignColumn
 let scrollview_current_only=1
 
-
-
-" LspKeyMap
-" SymbolsOutline
-
-" -- gd comments
+" gc comments
 lua require('Comment').setup()
 
+" LspKeyMap
