@@ -1,6 +1,6 @@
 My dotfiles
 
-Made for gnu [stow](https://www.gnu.org/software/stow/)
+Arranged for gnu [stow](https://www.gnu.org/software/stow/)
 
 To install, clone into `~`, then
 
