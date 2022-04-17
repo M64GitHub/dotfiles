@@ -51,8 +51,9 @@ Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'LinArcX/telescope-env.nvim'
 Plug 'TC72/telescope-tele-tabby.nvim'
 
-" treesitter
 Plug 'neovim/nvim-lspconfig'
+
+" treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
@@ -339,7 +340,7 @@ colorscheme tokyonight
 
 au ColorScheme * hi Normal ctermbg=None
 
-let g:rehash256 = 1
+" let g:rehash256 = 1 " not required
 
 set cursorline
 set clipboard=unnamedplus
