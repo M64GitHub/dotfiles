@@ -1,7 +1,7 @@
 set exrc                        
 set guicursor=                  
 set number
-set rnu
+"set rnu
 set nohlsearch
 set hidden
 set noerrorbells
@@ -251,7 +251,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+  ensure_installed = "all",
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
