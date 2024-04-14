@@ -1,0 +1,23 @@
+https://stackoverflow.com/questions/866721/how-to-generate-gcc-debug-symbol-outside-the-build-target
+
+objcopy --only-keep-debug main main.debug
+gdb -s main.debug -e main
+
+gdb
+(gdb) exec-file main
+(gdb) symbol-file main.debug
+
+layout next
+
+tui window asm height 8
+tui focus cmd
+
+set history save on
+set print pretty on
+
+https://ftp.gnu.org/old-gnu/Manuals/gdb/html_chapter/gdb_9.html#SEC58
+
+set print asm-demangle on
+
+reverse-stepi
+reverse-continue
